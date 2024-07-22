@@ -15,3 +15,4 @@ COPY . .
 
 # Run app.py when the container launches
 CMD ["node", "./src/index.js"]
+
