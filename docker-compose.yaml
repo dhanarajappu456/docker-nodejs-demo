@@ -31,7 +31,20 @@ services:
       - app-network
     environment:
       - BOOK_SERVICE_URL=http://book-service:3000
-
+  nginx:
+    # If no such image locally , it fetches from the dockerhub
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - 80:80
+    # mounting the file
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - app-network
+    depends_on:
+      - book-service
+      - loan-service
 volumes:
   mongo-data:
 
