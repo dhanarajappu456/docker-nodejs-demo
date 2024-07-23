@@ -45,6 +45,7 @@ services:
     # mounting the file
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./a.txt:/a.txt
     networks:
       - app-network
     depends_on:
