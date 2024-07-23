@@ -12,8 +12,11 @@ services:
     build: ./book-service
     image: book-service:latest
     container_name: book-service
-    ports:
-      - 3000:3000
+
+    # preventing direct access to book service.Rather access it via ngnix
+    #on port 80
+    # ports:
+    #   - 3000:3000
     networks:
       - app-network
     environment:
@@ -25,8 +28,10 @@ services:
     build: ./loan-service
     image: loan-service:latest
     container_name: loan-service
-    ports:
-      - 3001:3001
+    # preventing direct access to book service.Rather access it via ngnix
+    #on port 80
+    # ports:
+    #   - 3001:3001
     networks:
       - app-network
     environment:
